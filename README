@@ -1,0 +1,42 @@
+Проект содержит авто тесты для следущих функций API
+
+Получение деталей по категории продутов
+/api/v1/categories/{id}
+
+Класс - CategoryTest
+
+getCategoryByIdPositiveTest()
+проверяет наличие категорий 2, 3 и 4
+
+1, "Food"
+2, "Electronic"
+3, "Furniture"
+
+getCategoryByIdNegativeTest()
+негативный тест на каткгорию 4
+
+Класс - ProductTest
+
+getProductsTest()
+должен проверять /api/v1/categories/{id} но опущен, так как сервис падает с error 500
+
+runCRUDProductTest()
+проверяет все 4 операции
+POST - /api/v1/products - добавление нового продукта
+PUT - /api/v1/products - обновление продукта
+GET - /api/v1/products/{id} - получение продукта
+DELETE - /api/v1/products/{id} - удаление продукта (выполняется в runAfterEachTests())
+
+в едином сценарии:
+- Создать новый продукт через POST - /api/v1/products
+- Получить его ID
+- Получить продукт через GET - /api/v1/products/{id}
+- Добавать к Title продукта через PUT - /api/v1/products
+- Получить еще раз продукт через GET - /api/v1/products/{id}, проверить изменения
+- Удалить созданый продукт через - DELETE - /api/v1/products/{id}
+
+
+getProductNegativeTest()
+проверяет негативный сценарий ID=-2
+
+
